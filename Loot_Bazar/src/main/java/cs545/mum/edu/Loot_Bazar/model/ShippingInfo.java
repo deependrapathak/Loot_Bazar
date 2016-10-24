@@ -12,7 +12,7 @@ public class ShippingInfo {
 	@javax.persistence.Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long Id;
-	@Enumerated(EnumType.ORDINAL)
+	@Enumerated(EnumType.STRING)
 	private ShippingType shippingType;
 	private double shippingCost;
 	public double getShippingCost() {

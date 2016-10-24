@@ -8,20 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Customer {
 	@javax.persistence.Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
-	private String customerNumber;
 	private String fName;
 	private String lName;
 	private String phone;
 	private String email;
+	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date dob;
 	private String identificationNumber;
 	@OneToOne(cascade=CascadeType.ALL)
@@ -37,12 +38,7 @@ public class Customer {
 	public void setId(Long id) {
 		Id = id;
 	}
-	public String getCustomerNumber() {
-		return customerNumber;
-	}
-	public void setCustomerNumber(String customerNumber) {
-		this.customerNumber = customerNumber;
-	}
+	
 	public String getfName() {
 		return fName;
 	}

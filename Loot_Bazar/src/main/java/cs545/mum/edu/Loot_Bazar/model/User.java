@@ -3,13 +3,16 @@ package cs545.mum.edu.Loot_Bazar.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 @Entity
 public class User {
 	@javax.persistence.Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 	private String username;
 	private String password;
-	@Enumerated(EnumType.ORDINAL)
+	@Enumerated(EnumType.STRING)
 	private Role hasRole;
 	private boolean enabled;
 	public Long getId() {

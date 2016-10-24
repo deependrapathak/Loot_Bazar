@@ -15,6 +15,7 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<apache.tiles>3.0.3</apache.tiles>
 		<!-- <logback.version>1.1.3</logback.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version> -->
 	</properties>
@@ -36,6 +37,17 @@
 			<version>${logback.version}</version>
 		</dependency> -->
 		<!-- Spring -->
+<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${apache.tiles}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${apache.tiles}</version>
+		</dependency>
 
 		<dependency>
 
