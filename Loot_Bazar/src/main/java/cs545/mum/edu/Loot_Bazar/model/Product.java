@@ -6,22 +6,27 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
 public class Product {
 	@javax.persistence.Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 	private String pName;
-	private BigDecimal unitPrice;
+	private Long unitPrice;
 	private String description;
 	private long unitsInStock;
 	private long unitsInOrder;
 	private boolean discontinued;
-	private String condition;
+	private String conditions;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Category category;
-	@OneToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="review_id")
 	private List<Review> reviews;
 	public Long getId() {
 		return Id;
@@ -35,10 +40,10 @@ public class Product {
 	public void setpName(String pName) {
 		this.pName = pName;
 	}
-	public BigDecimal getUnitPrice() {
+	public Long getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(BigDecimal unitPrice) {
+	public void setUnitPrice(Long unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 	public String getDescription() {
@@ -66,10 +71,10 @@ public class Product {
 		this.discontinued = discontinued;
 	}
 	public String getCondition() {
-		return condition;
+		return conditions;
 	}
 	public void setCondition(String condition) {
-		this.condition = condition;
+		this.conditions = condition;
 	}
 	public Category getCategory() {
 		return category;
@@ -77,4 +82,11 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	/*public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}*/
+	
 }

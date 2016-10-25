@@ -17,8 +17,8 @@ public class Order {
 	private Long id;
 	private Date orderDate;
 	private Date shipDate;
-	@ManyToOne(cascade= CascadeType.ALL)
-	private Customer customer;
+	/*@ManyToOne(cascade= CascadeType.ALL)
+	private Customer customer;*/
 	@OneToOne(cascade= CascadeType.ALL)
 	private ShippingInfo info;
 	public Long getId() {

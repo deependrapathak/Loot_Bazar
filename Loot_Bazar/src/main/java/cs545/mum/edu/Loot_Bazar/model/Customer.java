@@ -10,7 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -18,19 +26,29 @@ public class Customer {
 	@javax.persistence.Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
+	@NotEmpty(message="{NotEmpty}")
 	private String fName;
 	private String lName;
+	@NotEmpty(message="{NotEmpty}")
+	@Size(min=10,max=10,message="{phone.size}")
 	private String phone;
+	@Email(message="{email}")
 	private String email;
 	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@NotNull(message="{NotNull}")
+	@Temporal(TemporalType.DATE)
+	@Past(message="past")
 	private Date dob;
+	@NotEmpty(message="{NotEmpty}")
 	private String identificationNumber;
 	@OneToOne(cascade=CascadeType.ALL)
+	@Valid
 	private Address address;
 	@OneToOne(cascade = CascadeType.ALL)
+	@Valid
 	private User user;
-	@OneToMany(fetch= FetchType.LAZY, cascade=CascadeType.ALL,mappedBy="customer")
-	private List<Order> orders;
+	/*@OneToMany(fetch= FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Order> orders;*/
 	
 	public Long getId() {
 		return Id;
@@ -87,11 +105,17 @@ public class Customer {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public List<Order> getOrders() {
+	/*public List<Order> getOrders() {
 		return orders;
 	}
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+	@Override
+	public String toString() {
+		return "Customer [Id=" + Id + ", fName=" + fName + ", lName=" + lName + ", phone=" + phone + ", email=" + email
+				+ ", dob=" + dob + ", identificationNumber=" + identificationNumber + ", address=" + address + ", user="
+				+ user + ", orders=" + orders + "]";
+	}*/
 	
 }

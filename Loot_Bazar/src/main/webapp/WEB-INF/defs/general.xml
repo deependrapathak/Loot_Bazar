@@ -19,4 +19,24 @@
 		<put-attribute name="body" value="/WEB-INF/views/user/signUp.jsp" />
 		<put-attribute name="current" value="signUp"></put-attribute>
 	</definition>
+	<definition name="users" extends="common">
+		<put-attribute name="title" value="Users" />
+		<put-attribute name="body" value="/WEB-INF/views/user/users.jsp" />
+		<put-attribute name="current" value="users"></put-attribute>
+	</definition>
+	<definition name="edituser" extends="common">
+		<put-attribute name="title" value="signUp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/edituser.jsp" />
+		<put-attribute name="current" value="signUp"></put-attribute>
+	</definition>
+	<definition name="login" extends="common">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/views/user/login.jsp" />
+		<put-attribute name="current" value="login"></put-attribute>
+	</definition>
+	<definition name="myprofile" extends="common">
+		<put-attribute name="title" value="myprofile" />
+		<put-attribute name="body" value="/WEB-INF/views/user/myprofile.jsp" />
+		<put-attribute name="current" value="myprofile"></put-attribute>
+	</definition>
 	</tiles-definitions>

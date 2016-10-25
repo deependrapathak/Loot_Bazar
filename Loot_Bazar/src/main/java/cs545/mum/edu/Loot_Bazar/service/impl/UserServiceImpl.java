@@ -36,10 +36,24 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void delete(Customer customer) {
+	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		userRepository.delete(customer);
+		userRepository.delete(id);
+	
 		
+	}
+
+	@Override
+	public void edit(Customer customer) {
+		// TODO Auto-generated method stub
+		userRepository.save(customer);
+		
+	}
+
+	@Override
+	public Customer findOneWithName(String name) {
+		// TODO Auto-generated method stub
+		return userRepository.findOneWithName(name);
 	}
 
 }

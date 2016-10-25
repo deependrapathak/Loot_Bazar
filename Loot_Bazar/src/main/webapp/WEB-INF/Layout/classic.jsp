@@ -10,7 +10,6 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
 <!-- Optional theme -->
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
@@ -18,7 +17,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">
 	
 </script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script
@@ -47,17 +47,36 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<spring:url value="/index" />">Loot Bazar</a>
+					<a class="navbar-brand" href="<spring:url value="/index" />">Loot
+						Bazar</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="${current=='welcome' ? 'active' :''}"><a
-							href="<spring:url value="/index" />">Home</a></li>						
+							href="<spring:url value="/index" />">Home</a></li>
 					</ul>
 					<ul class="nav navbar-nav">
 						<li class="${current=='signUp' ? 'active' :''}"><a
-							href="<spring:url value="/signUp" />">Sign Up</a></li>						
+							href="<spring:url value="/signUp" />">Sign Up</a></li>
 					</ul>
+					<ul class="nav navbar-nav">
+						<li class="${current=='users' ? 'active' :''}"><a
+							href="<spring:url value="/users" />">Users</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li class="${current=='login' ? 'active' :''}"><a
+							href="<spring:url value="/login" />">Login</a></li>
+					</ul>
+					<security:authorize access="isAuthenticated()">
+						<ul class="nav navbar-nav">
+							<li><a href='<spring:url value="/account"></spring:url>'>My Profile</a></li>
+						</ul>
+					</security:authorize>
+					<security:authorize access="isAuthenticated()">
+						<ul class="nav navbar-nav">
+							<li><a href='<spring:url value="/doLogout"></spring:url>'>Logout</a></li>
+						</ul>
+					</security:authorize>
 				</div>
 				<!--/.nav-collapse -->
 			</div>

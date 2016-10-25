@@ -1,10 +1,13 @@
 package cs545.mum.edu.Loot_Bazar.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Review {
 	@javax.persistence.Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 	private String description;
 	private String name;

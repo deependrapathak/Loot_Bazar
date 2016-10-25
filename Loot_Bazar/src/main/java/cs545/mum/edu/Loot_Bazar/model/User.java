@@ -1,16 +1,26 @@
 package cs545.mum.edu.Loot_Bazar.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class User {
 	@javax.persistence.Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
+	@NotEmpty(message="{NotEmpty}")
+	@Size(min=5,max=20,message="{phone.size}")
+	@Column(unique=true)
 	private String username;
+	@NotEmpty(message="{NotEmpty}")
+	@Size(min=5,max=20,message="{phone.size}")
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role hasRole;
