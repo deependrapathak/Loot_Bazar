@@ -19,13 +19,10 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
-	<!-- <bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
+		/> <property name="prefix" value="/WEB-INF/views/" /> <property name="suffix" 
+		value=".jsp" /> </bean> -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
@@ -41,16 +38,29 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 
 	</bean>
-<bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-   		<property name="basenames" value="messages,errormessages"/>
-   		<property name="defaultEncoding" value="UTF-8" /> 
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="messages,errormessages" />
+		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
-	
-	
-	
+
+
+
 	<!--validation -->
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	<mvc:interceptors>
+		<bean
+			class="cs545.mum.edu.Loot_Bazar.interceptor.PerformanceMonitorInterceptor">
+		</bean>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="language" />
+		</bean>
+	</mvc:interceptors>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
 	</bean>
 </beans>

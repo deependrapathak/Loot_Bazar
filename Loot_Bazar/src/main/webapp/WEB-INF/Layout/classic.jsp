@@ -50,15 +50,18 @@
 					<a class="navbar-brand" href="<spring:url value="/index" />">Loot
 						Bazar</a>
 				</div>
+				<div style="float: right;">Language:<a href="?language=en" >English</a>|<a href="?language=hi">नेपाली </a></div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="${current=='welcome' ? 'active' :''}"><a
 							href="<spring:url value="/index" />">Home</a></li>
 					</ul>
+					<security:authorize access="! isAuthenticated()">
 					<ul class="nav navbar-nav">
 						<li class="${current=='signUp' ? 'active' :''}"><a
 							href="<spring:url value="/signUp" />">Sign Up</a></li>
 					</ul>
+					</security:authorize>
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 					<ul class="nav navbar-nav">
 						<li class="${current=='users' ? 'active' :''}"><a
@@ -82,6 +85,7 @@
 						</ul>
 					</security:authorize>
 				</div>
+				
 				<%-- <div style="float: right;"><security:authentication property="principal.getname" /></div> --%>
 				<!--/.nav-collapse -->
 			</div>

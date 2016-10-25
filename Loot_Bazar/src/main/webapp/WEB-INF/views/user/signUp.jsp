@@ -4,7 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <div>
-<h1>Please Sign Up</h1>
+<h1><spring:message code="sign.up" /></h1>
+
 <form:form modelAttribute="user" action="/Loot_Bazar/signUp" method="post">
 <p><form:errors path="*" cssStyle="color:red"/></p>
 <table>
@@ -49,7 +50,7 @@
 <td><form:input path="user.password" type="password" /></td>
 <td><form:errors path="user.password" cssStyle="color:red"/></td>
 </tr>
-<tr><td><h3>Address</h3></td></tr>
+<tr><td><h3><spring:message code="sign.address"/></h3></td></tr>
 <tr>
 <td><spring:message code="customer.street" /></td>
 <td><form:input path="address.street"/></td>
