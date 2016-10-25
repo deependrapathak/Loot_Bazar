@@ -3,6 +3,7 @@ package cs545.mum.edu.Loot_Bazar.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Customer save(Customer customer) {
 		// TODO Auto-generated method stub
+		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(12);
+		customer.getUser().setPassword(encoder.encode(customer.getUser().getPassword()));
 		userRepository.save(customer);
 		return customer;
 	}

@@ -59,14 +59,18 @@
 						<li class="${current=='signUp' ? 'active' :''}"><a
 							href="<spring:url value="/signUp" />">Sign Up</a></li>
 					</ul>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
 					<ul class="nav navbar-nav">
 						<li class="${current=='users' ? 'active' :''}"><a
 							href="<spring:url value="/users" />">Users</a></li>
 					</ul>
+					</security:authorize>
+					<security:authorize access="! isAuthenticated()">
 					<ul class="nav navbar-nav">
 						<li class="${current=='login' ? 'active' :''}"><a
 							href="<spring:url value="/login" />">Login</a></li>
 					</ul>
+					</security:authorize>
 					<security:authorize access="isAuthenticated()">
 						<ul class="nav navbar-nav">
 							<li><a href='<spring:url value="/account"></spring:url>'>My Profile</a></li>
@@ -78,6 +82,7 @@
 						</ul>
 					</security:authorize>
 				</div>
+				<%-- <div style="float: right;"><security:authentication property="principal.getname" /></div> --%>
 				<!--/.nav-collapse -->
 			</div>
 			<!--/.container-fluid -->

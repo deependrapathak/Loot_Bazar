@@ -75,16 +75,6 @@
 <td><form:input path="address.country"/></td>
 <td><form:errors path="address.country" cssStyle="color:red"/></td>
 </tr>
-<tr>
-<td><spring:message code="customer.username" /></td>
-<td><form:input path="user.username"/></td>
-<td><form:errors path="user.username" cssStyle="color:red"/></td>
-</tr>
-<tr>
-<td><spring:message code="customer.password" /></td>
-<td><form:input path="user.password" type="password" /></td>
-<td><form:errors path="user.password" cssStyle="color:red"/></td>
-</tr>
 </table>
 <form:hidden path="user.enabled" value="true"/>
 <input type="submit" value="SignUp">

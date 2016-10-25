@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <div>
 <h1>Please Sign Up</h1>
-<form:form modelAttribute="user" action="/Loot_Bazar/signUp" method="post">
+<form:form modelAttribute="user" action="/Loot_Bazar/useredit" method="post">
 <p><form:errors path="*" cssStyle="color:red"/></p>
 <table>
 <form:hidden path="Id"/>

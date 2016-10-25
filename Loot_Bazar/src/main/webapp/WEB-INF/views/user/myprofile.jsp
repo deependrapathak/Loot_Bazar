@@ -10,37 +10,16 @@
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
-<div>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>phone</th>
-<th>Email</th>
-<th>BirthDate</th>
-<th>Address</th>
-<th>UserName</th>
-<th>Role</th>
-<!-- <th>Edit</th>
-<th>Delete</th> -->
+<div id="myaccount">
+Name: ${user.fName}&nbsp;${user.lName}<br>
+Phone: ${user.phone}<br>
+Email ${user.email}<br>
+Birth Date: ${user.dob}<br>
+Address: ${user.address.street},${user.address.city}<br>${user.address.state}&nbsp;${user.address.zip}&nbsp;${user.address.country}<br>
+Username: ${user.user.username}<br>
+Role: ${user.user.hasRole}<br>
+<a href="/Loot_Bazar/useredit/${user.id}">Edit Profile</a>
 
-</tr>
-
-</thead>
-<tr>
-<td>${user.fName}&nbsp;${user.lName}</td>
-<td>${user.phone}</td>
-<td>${user.email}</td>
-<td>${user.dob}</td>
-<td>${user.address.street},${user.address.city}<br>${user.address.state}&nbsp;${user.address.zip}&nbsp;${user.address.country}</td>
-<%-- &nbsp;${user.address.city}&nbsp;${user.address.state}&nbsp;${user.address.zip}&nbsp;${user.address.country"} --%>
-<td>${user.user.username}</td>
-<td>${user.user.hasRole}</td>
-<%-- <td><a href="useredit/${user.id}">Edit</a></td>
-<td><a href="/Loot_Bazar/users/${user.id}">Delete</a></td> --%>
-</tr>
-
-</table>
 </div>
 </body>
 </html>

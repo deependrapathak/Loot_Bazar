@@ -20,7 +20,7 @@ public class User {
 	@Column(unique=true)
 	private String username;
 	@NotEmpty(message="{NotEmpty}")
-	@Size(min=5,max=20,message="{phone.size}")
+	@Size(min=5,message="{password.size}")
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role hasRole;

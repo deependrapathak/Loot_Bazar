@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cs545.mum.edu.Loot_Bazar.model.Customer;
@@ -19,6 +20,7 @@ import cs545.mum.edu.Loot_Bazar.model.Role;
 import cs545.mum.edu.Loot_Bazar.service.UserService;
 
 @Controller
+@SessionAttributes("userSession")
 public class UserController {
 	@Autowired
 	UserService userService;
@@ -56,6 +58,17 @@ public String delete(@PathVariable("id") Long id){
 			model.addAttribute("user", customer);
 			return "edituser";
 			
+	}
+	@RequestMapping(value="/useredit",method=RequestMethod.POST)
+	public String afteredit(@ModelAttribute("user") @Valid Customer customer,BindingResult result,RedirectAttributes redirectAttributes ){
+		customer.getUser().setHasRole(Role.ROLE_CUSTOMER);
+		if(result.hasErrors()){
+			return "edituser";
+		}
+		userService.edit(customer);
+		redirectAttributes.addFlashAttribute("customer",customer);
+	
+		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/account",method=RequestMethod.GET)

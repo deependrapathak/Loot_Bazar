@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
 <div>
@@ -15,14 +16,25 @@
 <spring:message code="badCredentials"/>
 </c:if>
 </div>
-<div>
+<div id="loginform">
 <form action="<spring:url value="/postLogin"></spring:url>" method="post">
 <fieldset>
 <legend>LOGIN</legend>
-UserName:<input type="text" name="username"><br>
-Password:<input type="password" name="password"> <br>
-<input type="checkbox" name="keepMe">Remember Me?<br>
-<input type="submit" value="LOGIN">
+<table style="width: 50%; border: none;">
+<tr>
+<td>
+UserName:<input type="text" name="username"></td>
+</tr>
+<tr>
+<td>
+Password:<input type="password" name="password"> </td></tr>
+<tr>
+<td>
+<input type="checkbox" name="keepMe">Remember Me?</td></tr>
+<tr>
+<td>
+<input type="submit" value="LOGIN"></td></tr>
+</table>
 </fieldset>
 
 </form>

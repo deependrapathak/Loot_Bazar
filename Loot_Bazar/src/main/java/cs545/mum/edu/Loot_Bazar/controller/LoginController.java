@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 public class LoginController {
@@ -11,6 +12,7 @@ public class LoginController {
 	public String login(){
 		return "login";
 	}
+	
 	@RequestMapping(value="/loginFailed", method = RequestMethod.GET)
 	public String loginerror(Model model) {
  
@@ -19,7 +21,8 @@ public class LoginController {
  
 	}
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logout(Model model) {
+	public String logout(Model model,SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
  		return "redirect:/index";
  	}
 }
