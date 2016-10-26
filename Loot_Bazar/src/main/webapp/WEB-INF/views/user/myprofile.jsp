@@ -11,6 +11,7 @@
 </head>
 <body>
 <div id="myaccount">
+ 
 Name: ${user.fName}&nbsp;${user.lName}<br>
 Phone: ${user.phone}<br>
 Email ${user.email}<br>

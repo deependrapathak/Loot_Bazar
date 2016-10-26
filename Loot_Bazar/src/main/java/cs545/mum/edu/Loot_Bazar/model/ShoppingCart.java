@@ -3,7 +3,6 @@ package cs545.mum.edu.Loot_Bazar.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ public class ShoppingCart {
 	private Long Id;
 	private long quantity;
 	private Date dateAdded;
-	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Product> product;
 	public long getQuantity() {
 		return quantity;

@@ -11,7 +11,7 @@
 	</definition>
 	<definition name="welcome" extends="common">
 		<put-attribute name="title" value="Loot-Bazar" />
-		<put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/product/products.jsp" />
 		<put-attribute name="current" value="welcome"></put-attribute>
 	</definition>
 	<definition name="signUp" extends="common">
@@ -38,5 +38,40 @@
 		<put-attribute name="title" value="myprofile" />
 		<put-attribute name="body" value="/WEB-INF/views/user/myprofile.jsp" />
 		<put-attribute name="current" value="myprofile"></put-attribute>
+	</definition>
+	<definition name="addProduct" extends="common">
+		<put-attribute name="title" value="addProduct" />
+		<put-attribute name="body" value="/WEB-INF/views/product/addProduct.jsp" />
+		<put-attribute name="current" value="addProduct"></put-attribute>
+	</definition>
+	<definition name="addCategories" extends="common">
+		<put-attribute name="title" value="addCategories" />
+		<put-attribute name="body" value="/WEB-INF/views/product/addCategories.jsp" />
+		<put-attribute name="current" value="addCategories"></put-attribute>
+	</definition>
+	<definition name="product" extends="common">
+		<put-attribute name="title" value="product" />
+		<put-attribute name="body" value="/WEB-INF/views/product/product.jsp" />
+		<put-attribute name="current" value="product"></put-attribute>
+	</definition>
+	<definition name="categories" extends="common">
+		<put-attribute name="title" value="categories" />
+		<put-attribute name="body" value="/WEB-INF/views/product/categories.jsp" />
+		<put-attribute name="current" value="categories"></put-attribute>
+	</definition>
+	<definition name="category" extends="common">
+		<put-attribute name="title" value="product" />
+		<put-attribute name="body" value="/WEB-INF/views/product/category.jsp" />
+		<put-attribute name="current" value="category"></put-attribute>
+	</definition>
+	<definition name="updateProduct" extends="common">
+		<put-attribute name="title" value="updateProduct" />
+		<put-attribute name="body" value="/WEB-INF/views/product/updateProduct.jsp" />
+		<put-attribute name="current" value="updateProduct"></put-attribute>
+	</definition>
+	<definition name="updateCategory" extends="common">
+		<put-attribute name="title" value="updateCategory" />
+		<put-attribute name="body" value="/WEB-INF/views/product/updateCategory.jsp" />
+		<put-attribute name="current" value="updateCategory"></put-attribute>
 	</definition>
 	</tiles-definitions>

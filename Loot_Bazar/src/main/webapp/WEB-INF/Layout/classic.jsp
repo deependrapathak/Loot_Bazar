@@ -79,6 +79,24 @@
 							<li><a href='<spring:url value="/account"></spring:url>'>My Profile</a></li>
 						</ul>
 					</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<ul class="nav navbar-nav">
+						<li class="${current=='addProduct' ? 'active' :''}"><a
+							href="<spring:url value="/product/add" />">AddProduct</a></li>
+					</ul>
+					</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<ul class="nav navbar-nav">
+						<li class="${current=='addCategories' ? 'active' :''}"><a
+							href="<spring:url value="/addCategory" />">AddCategories</a></li>
+					</ul>
+					</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<ul class="nav navbar-nav">
+						<li class="${current=='categories' ? 'active' :''}"><a
+							href="<spring:url value="/categories" />">Categories</a></li>
+					</ul>
+					</security:authorize>
 					<security:authorize access="isAuthenticated()">
 						<ul class="nav navbar-nav">
 							<li><a href='<spring:url value="/doLogout"></spring:url>'>Logout</a></li>

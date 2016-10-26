@@ -76,6 +76,7 @@
 <td><form:input path="address.country"/></td>
 <td><form:errors path="address.country" cssStyle="color:red"/></td>
 </tr>
+
 </table>
 <form:hidden path="user.enabled" value="true"/>
 <input type="submit" value="SignUp">

@@ -1,18 +1,22 @@
 package cs545.mum.edu.Loot_Bazar.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Review {
 	@javax.persistence.Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long Id;
 	private String description;
 	private String name;
 	private String email;
 	private String rate;
+	
+	@ManyToOne(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
+	private Product product;
 	public String getDescription() {
 		return description;
 	}

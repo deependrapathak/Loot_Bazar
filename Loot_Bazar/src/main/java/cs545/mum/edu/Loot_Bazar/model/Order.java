@@ -21,7 +21,7 @@ public class Order {
 	private Date orderDate;
 	@Temporal(TemporalType.DATE)
 	private Date shipDate;
-	@ManyToOne
+	@ManyToOne()
 	private Customer customer;
 	@OneToOne(cascade= CascadeType.ALL)
 	private ShippingInfo info;

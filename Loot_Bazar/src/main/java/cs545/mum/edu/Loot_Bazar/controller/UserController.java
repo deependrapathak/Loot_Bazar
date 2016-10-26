@@ -2,6 +2,7 @@ package cs545.mum.edu.Loot_Bazar.controller;
 
 import java.security.Principal;
 
+import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,6 @@ public class UserController {
 		}
 		userService.save(customer);
 		redirectAttributes.addFlashAttribute("customer",customer);
-	
 		return "redirect:/index";
 	}
 	@RequestMapping(value="/users",method=RequestMethod.GET)
