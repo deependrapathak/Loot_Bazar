@@ -65,6 +65,7 @@ public String delete(@PathVariable("id") Long id){
 		if(result.hasErrors()){
 			return "edituser";
 		}
+		customer.setId(customer.getId());
 		userService.edit(customer);
 		redirectAttributes.addFlashAttribute("customer",customer);
 	

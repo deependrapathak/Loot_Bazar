@@ -16,6 +16,8 @@
 			access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')" />
 		<security:intercept-url pattern="/account"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')" />
+			<security:intercept-url pattern="/product**"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')" />
 
 		<security:form-login login-page="/login"
 			login-processing-url="/postLogin" username-parameter="username"

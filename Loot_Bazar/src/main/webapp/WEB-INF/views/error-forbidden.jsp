@@ -6,8 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-you are not allowed in this area
-<a href="/index">Home</a>
+<body> 
+
+		<center>
+		
+		<img src="<spring:url value="/resources/images/forbidden-error.jpg"  htmlEscape="true" />" alt="Your not allowed!!!"  />
+		
+		<H2>${requestScope['javax.servlet.error.message']}</H2>
+		 
+		 <p><button type=button onclick=window.location.href="<spring:url value="/index" />">Home</button></p>
+		 
+  </body>
 </body>
 </html>

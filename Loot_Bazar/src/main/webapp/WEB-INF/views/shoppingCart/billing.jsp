@@ -12,13 +12,27 @@
 <title>Shopping Cart</title>
 </head>
 <body>
-	<h1>Shopping Cart Information</h1>
+	<h1>Shipping Information</h1>
 	<div style="align:center">
-		<div>
-			<!-- checkout via web flow using URL parameter -->
-				 <a href="/Loot_Bazar/editinfo/${pageContext.request.userPrincipal.name}"  class="btn btn-success" >
-						<span class="glyphicon-comment glyphicon"></span>Process Orders	</a>
-		</div>
+	 
+		<table class="table table-hover">
+			<tr>
+				<td>Your Name</td>
+				<td>Phone Number</td>
+				<td>Email</td>
+				<td>Address</td> 
+			</tr>
+			<tr>
+				<td>${customer.fName } ${customer.lName }</td>
+				<td>${customer.phone }</td>
+				<td>${customer.email }</td>
+				<td>${customer.address }</td> 
+			</tr>
+			</table>
+	</div>
+	<h1>Billing Information</h1>
+	<div style="align:center">
+	 
 		<table class="table table-hover">
 			<tr>
 				<td>Product Name</td>
@@ -27,16 +41,12 @@
 				<td>Sub Total</td>
 			</tr>
 			 
-			<c:forEach items="${shoppingCarts }" var="shoppingCart">
+			<c:forEach items="${billingInfo }" var="shoppingCart">
 			<tr>
 				<td>${shoppingCart.orderDetails.product.pName }</td>
 				<td>${shoppingCart.orderDetails.unitCost }</td>
 				<td>${shoppingCart.quantity }</td>
 				<td>$ ${shoppingCart.orderDetails.subTotal }</td>
-				<td>
-						<a href="#" onclick="removeFromShoppingCart('${shoppingCart.id}')" style= "background-color:red" >Cancel
-						</a>
-				</td>
 			</tr>
 			</c:forEach>
 			<tr>
@@ -57,13 +67,11 @@
 				<th></th>
 			</tr>
 			<tr> 
-					<td><a href="<spring:url value="/products" />"  class="btn btn-success ">
-					  <span class="glyphicon-comment glyphicon"></span>More Orders	</a>
-					</td>
+					 
 					<td></td>
 					<td></td>
-					<td><a href="#" onclick="deleteAllCarts()"  class="btn btn-success" >
-						<span class="glyphicon-comment glyphicon"></span>Cancel Shopping	</a>
+					<td><a href="<spring:url value="/thankYou"  /> "  class="btn btn-success" >
+						<span class="glyphicon-comment glyphicon"></span>Place Order	</a>
 					</td>
 			</tr>
 		</table>

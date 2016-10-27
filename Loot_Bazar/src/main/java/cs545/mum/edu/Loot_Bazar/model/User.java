@@ -17,7 +17,7 @@ public class User {
 	private Long Id;
 	@NotEmpty(message="{NotEmpty}")
 	@Size(min=5,max=20,message="{phone.size}")
-	@Column(unique=true)
+	/*@Column(unique=true)*/
 	private String username;
 	@NotEmpty(message="{NotEmpty}")
 	@Size(min=5,message="{password.size}")

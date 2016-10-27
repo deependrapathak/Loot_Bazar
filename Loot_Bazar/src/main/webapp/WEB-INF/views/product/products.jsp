@@ -14,7 +14,7 @@
 <c:forEach items="${products}" var="products">
 <div style="border:2px solid blue; width:300px;float:left; margin:5px">
 <p> Product Name: ${products.pName }</p>
-<img src="<c:url value="/resources/images/C${products.id}.png"></c:url>" alt="image" style = "width:250px; height:150px"/>
+<img src="<c:url value="/resources/images/C${products.id}.png"></c:url>" alt="image" onerror="if (this.src != 'error.jpg') this.src = '<c:url value="/resources/images/C9.png" ></c:url>';" style = "width:250px; height:150px"/>
 <p> Units in Stock: ${products.unitsInStock }</p>
 <p> Category: ${products.category.cName } </p>
 <br/>

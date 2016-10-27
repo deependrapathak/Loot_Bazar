@@ -23,9 +23,7 @@
 <body>
 	<div style="float: left; margin: 5px">
 		<h1>Product Detail</h1>
-		<img
-			src="<c:url value="/resources/images/C${product.id }.png"></c:url>"
-			alt="image" style="width: 250px" />
+		<img src="<c:url value="/resources/images/C${products.id}.png"></c:url>" alt="image" onerror="if (this.src != 'error.jpg') this.src = '<c:url value="/resources/images/C9.png" ></c:url>';" style = "width:250px; height:150px"/>
 		<p>ID:${product.id }</p>
 		<p>Product Name: ${product.pName }</p>
 		<p>Unit Price: ${product.unitPrice}</p>

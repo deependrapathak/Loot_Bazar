@@ -41,6 +41,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 	public void saveShoppingCart(Long productId) {
 		 
 		 Product product = productRepository.findOne(productId);
+		 
 		 OrderDetails odr =orderDetailsRepository.findByProductId(productId);
 		 if(odr!=null){
 			 odr.setQuantity(odr.getQuantity() + 1);
@@ -54,6 +55,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 			 sc.setOrderDetails(odr);
 			 shoppingCartRepository.save(sc);
 		 	} 
+		 product.setUnitsInStock(product.getUnitsInStock()-1);
+		 productRepository.save(product);
 		 }
 		 else{
 			 OrderDetails orderDetails = new OrderDetails();
@@ -75,7 +78,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 			//addCart(shoppingCart);
 			 orderDetailsRepository.save(orderDetails);
 		 
-			 
+			 product.setUnitsInStock(product.getUnitsInStock()-1);
+			 productRepository.save(product);
 			
 		 }
 		 	

@@ -79,6 +79,26 @@
 		<put-attribute name="body" value="/WEB-INF/views/shoppingCart/cartList.jsp" />
 		<put-attribute name="current" value="cartList"></put-attribute>
 	</definition>
-	
+	<definition name="editinfo" extends="common">
+		<put-attribute name="title" value="editinfo" />
+		<put-attribute name="body" value="/WEB-INF/views/shoppingCart/editinfo.jsp" />
+		<put-attribute name="current" value="editinfo"></put-attribute>
+	</definition>
+	<definition name="billing" extends="common">
+		<put-attribute name="title" value="billing" />
+		<put-attribute name="body" value="/WEB-INF/views/shoppingCart/billing.jsp" />
+		<put-attribute name="current" value="billing"></put-attribute>
+	</definition>
+	<definition name="thankYou" extends="common">
+		<put-attribute name="title" value="ThankYou" />
+		<put-attribute name="body" value="/WEB-INF/views/thankYou.jsp" />
+		<put-attribute name="current" value="thankYou"></put-attribute>
+	</definition>
+	<definition name="error" extends="common"> 
+		<put-attribute name="body" value="/WEB-INF/views/error.jsp" /> 
+	</definition>
+	<definition name="error" extends="common"> 
+		<put-attribute name="body" value="/WEB-INF/views/error-forbidden.jsp" /> 
+	</definition>
 	
 	</tiles-definitions>

@@ -26,4 +26,9 @@ public class HomeController {
 	public String signUp(){
 		return "signUp";
 	}
+	@RequestMapping(value="/thankYou")
+	public String thankYou(){
+		return "thankYou";
+	}
+	
 }
