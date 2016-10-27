@@ -9,19 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-public class Order {
+public class Orders {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
-	@Temporal(TemporalType.DATE)
 	private Date orderDate;
-	@Temporal(TemporalType.DATE)
 	private Date shipDate;
-	@ManyToOne()
+	@ManyToOne(cascade= CascadeType.ALL)
 	private Customer customer;
 	@OneToOne(cascade= CascadeType.ALL)
 	private ShippingInfo info;

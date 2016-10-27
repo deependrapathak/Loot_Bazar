@@ -24,8 +24,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import cs545.mum.edu.Loot_Bazar.model.Category;
 import cs545.mum.edu.Loot_Bazar.model.Customer;
 import cs545.mum.edu.Loot_Bazar.model.Product;
+import cs545.mum.edu.Loot_Bazar.model.Review;
 import cs545.mum.edu.Loot_Bazar.service.CategoryService;
 import cs545.mum.edu.Loot_Bazar.service.ProductService;
+import cs545.mum.edu.Loot_Bazar.service.ReviewService;
 
 @Controller
 public class ProductController {
@@ -35,7 +37,8 @@ public class ProductController {
 	private ProductService productService;
 	@Autowired
 	private CategoryService categoryService;
-
+	@Autowired
+	ReviewService reviewService;
 	@RequestMapping(value = { "", "/products" })
 	public String listProducts(Model model) {
 
@@ -51,6 +54,8 @@ public class ProductController {
 		Product product = productService.getProductById(productId);
 
 		model.addAttribute("product", product);
+		List<Review> reviews = reviewService.findReviewByProductId(productId);
+		model.addAttribute("reviews", reviews);
 		return "product";
 	}
 

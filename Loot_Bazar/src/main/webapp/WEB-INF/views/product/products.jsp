@@ -10,7 +10,7 @@
 <title>All Product</title>
 </head>
 <body>
-<h2> Product Details </h2>
+<!-- <h2> Product Details </h2> -->
 <c:forEach items="${products}" var="products">
 <div style="border:2px solid blue; width:300px;float:left; margin:5px">
 <p> Product Name: ${products.pName }</p>

@@ -74,4 +74,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/product/updateCategory.jsp" />
 		<put-attribute name="current" value="updateCategory"></put-attribute>
 	</definition>
+	<definition name="cartList" extends="common">
+		<put-attribute name="title" value="cartList" />
+		<put-attribute name="body" value="/WEB-INF/views/shoppingCart/cartList.jsp" />
+		<put-attribute name="current" value="cartList"></put-attribute>
+	</definition>
+	
+	
 	</tiles-definitions>
